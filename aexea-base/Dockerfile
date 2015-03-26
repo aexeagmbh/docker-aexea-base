@@ -15,8 +15,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y python3-pip\
     python-virtualenv\
     postgresql-client
 
-RUN pip3 install psycopg2 lxml Pillow pandas
-
 # Set the locale
 RUN locale-gen en_US.UTF-8  
 ENV LANG en_US.UTF-8  
