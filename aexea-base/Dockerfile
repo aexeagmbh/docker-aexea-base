@@ -13,7 +13,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y python3-pip\
     postgresql-server-dev-all\
     git\
     python-virtualenv\
-    postgresql-client
+    postgresql-client\
+    curl
 
 # Set the locale
 RUN locale-gen en_US.UTF-8  
