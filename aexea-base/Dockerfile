@@ -14,6 +14,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y python3-pip\
     git\
     python-virtualenv\
     postgresql-client\
+    libfreetype6-dev\
     curl
 
 # Set the locale
