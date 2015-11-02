@@ -3,19 +3,21 @@ MAINTAINER Aexea Carpentry
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y python3-pip\
-    zlib1g-dev\
-    libjpeg8-dev\
-    libxml2-dev\
-    libxslt1-dev\
-    lib32z1-dev\
-    libmemcached-dev\
-    postgresql-server-dev-all\
-    git\
-    python-virtualenv\
-    postgresql-client\
-    libfreetype6-dev\
-    curl
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    zlib1g-dev \
+    libjpeg8-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    lib32z1-dev \
+    libmemcached-dev \
+    postgresql-server-dev-all \
+    git \
+    python-virtualenv \
+    postgresql-client \
+    libfreetype6-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
