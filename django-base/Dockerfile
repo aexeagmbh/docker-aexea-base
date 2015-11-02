@@ -3,7 +3,6 @@ MAINTAINER Aexea Carpentry
 
 EXPOSE 8000
 RUN pip3 install psycopg2 lxml Pillow pandas wheel
-RUN easy_install3 -U pip
 
 ONBUILD ADD requirements.txt /opt/code/requirements.txt
 ONBUILD WORKDIR /opt/code

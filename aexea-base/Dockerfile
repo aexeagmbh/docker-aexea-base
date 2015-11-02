@@ -25,6 +25,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
+# Install latest pip
+RUN easy_install3 -U pip
+
 RUN useradd uid1000 -d /home/uid1000
 RUN mkdir -p /home/uid1000 && chown uid1000: /home/uid1000
 VOLUME /home/uid1000
