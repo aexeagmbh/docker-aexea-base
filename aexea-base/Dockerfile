@@ -3,7 +3,7 @@ MAINTAINER Aexea Carpentry
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y python3-pip\
+RUN apt-get update && apt-get install -y python3-pip\
     zlib1g-dev\
     libjpeg8-dev\
     libxml2-dev\
