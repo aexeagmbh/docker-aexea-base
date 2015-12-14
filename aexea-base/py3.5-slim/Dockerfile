@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     postgresql-client \
     libfreetype6-dev \
     curl \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the locale
