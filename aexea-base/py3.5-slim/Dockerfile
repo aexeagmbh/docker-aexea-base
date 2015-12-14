@@ -4,19 +4,19 @@ MAINTAINER Aexea Carpentry
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get install -y \
-    locales \
-    zlib1g-dev \
-    libjpeg-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    lib32z1-dev \
-    libmemcached-dev \
-    postgresql-server-dev-all \
-    git \
-    postgresql-client \
-    libfreetype6-dev \
     curl \
     g++ \
+    git \
+    lib32z1-dev \
+    libfreetype6-dev \
+    libjpeg-dev \
+    libmemcached-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    locales \
+    postgresql-client \
+    postgresql-server-dev-all \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the locale

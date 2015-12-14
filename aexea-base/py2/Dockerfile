@@ -10,19 +10,19 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-    python-pip \
-    python-dev \
-    zlib1g-dev \
+    curl \
+    git \
+    lib32z1-dev \
     libjpeg8-dev \
+    libmemcached-dev \
     libxml2-dev \
     libxslt1-dev \
-    lib32z1-dev \
-    libmemcached-dev \
-    postgresql-server-dev-all \
-    git \
-    python-virtualenv \
     postgresql-client \
-    curl \
+    postgresql-server-dev-all \
+    python-dev \
+    python-pip \
+    python-virtualenv \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd uid1000 -d /home/uid1000

@@ -10,19 +10,19 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && apt-get install -y \
-    python3-pip \
-    zlib1g-dev \
+    curl \
+    git \
+    lib32z1-dev \
+    libfreetype6-dev \
     libjpeg8-dev \
+    libmemcached-dev \
     libxml2-dev \
     libxslt1-dev \
-    lib32z1-dev \
-    libmemcached-dev \
-    postgresql-server-dev-all \
-    git \
-    python-virtualenv \
     postgresql-client \
-    libfreetype6-dev \
-    curl \
+    postgresql-server-dev-all \
+    python-virtualenv \
+    python3-pip \
+    zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install latest pip
