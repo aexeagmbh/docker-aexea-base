@@ -1,4 +1,4 @@
-FROM aexea/aexea-base
+FROM aexea/aexea-base-py2
 MAINTAINER Aexea Carpentry
 
 RUN apt-get update && apt-get install -y python-pip python-dev
