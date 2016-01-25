@@ -1,4 +1,4 @@
-FROM python:3.5-slim
+FROM python:3.5
 MAINTAINER Aexea Carpentry
 
 ENV DEBIAN_FRONTEND noninteractive
