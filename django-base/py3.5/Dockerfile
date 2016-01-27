@@ -1,4 +1,4 @@
-FROM aexea/aexea-base:py3.5-slim
+FROM aexea/aexea-base:py3.5
 MAINTAINER Aexea Carpentry
 
 EXPOSE 8000
