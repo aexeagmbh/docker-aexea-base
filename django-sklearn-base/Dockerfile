@@ -1,7 +1,8 @@
-FROM aexea/django-base
+FROM aexea/aexea-base
 MAINTAINER Aexea Carpentry
 
-USER root
+EXPOSE 8000
+RUN pip3 install psycopg2 lxml Pillow pandas wheel
 
 # scipy / scikit-learn
 RUN apt-get update && apt-get -y upgrade && apt-get install -y libblas-dev liblapack-dev libatlas-base-dev gfortran
@@ -12,4 +13,10 @@ RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/whee
 RUN pip3 install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.7.1-cp34-none-linux_x86_64.whl
 RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ skflow
 
-USER uid1000
+ONBUILD ADD requirements.txt /opt/code/requirements.txt
+ONBUILD WORKDIR /opt/code
+ONBUILD RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements.txt
+
+ONBUILD ADD . /opt/code
+ONBUILD WORKDIR /opt/code
+ONBUILD USER uid1000
