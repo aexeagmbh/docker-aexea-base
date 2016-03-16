@@ -13,6 +13,9 @@ RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/whee
 RUN pip3 install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.7.1-cp34-none-linux_x86_64.whl
 RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ skflow
 
+# hunspell
+RUN apt-get update && apt-get install -y libhunspell-dev libicu-dev unzip
+
 ONBUILD ADD requirements.txt /opt/code/requirements.txt
 ONBUILD WORKDIR /opt/code
 ONBUILD RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements.txt
