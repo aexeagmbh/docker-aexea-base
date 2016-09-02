@@ -3,9 +3,12 @@ MAINTAINER Aexea Carpentry
 
 RUN apt-get update && apt-get install -y python-pip python-dev
 
-ONBUILD ADD requirements.txt /opt/code/requirements.txt
+ONBUILD COPY requirements*.txt /opt/code/
 ONBUILD WORKDIR /opt/code
-ONBUILD RUN pip install -Ur requirements.txt
+ONBUILD RUN pip install -Ur requirements.txt \
+	&& if test -e requirements-deploy.txt; then \
+		pip install -Ur requirements-deploy.txt; \
+	fi
 
 ONBUILD ADD . /opt/code
 ONBUILD WORKDIR /opt/code

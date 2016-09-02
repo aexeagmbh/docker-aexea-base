@@ -12,9 +12,12 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.4.
 	&& apt-get install -y mono-profiler mono-devel ca-certificates-mono fsharp mono-vbnc nuget nunit nunit-console default-jre zip \
 	&& rm -rf /var/lib/apt/lists/*
 
-ONBUILD ADD requirements.txt /opt/code/requirements.txt
+ONBUILD COPY requirements*.txt /opt/code/
 ONBUILD WORKDIR /opt/code
-ONBUILD RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements.txt
+ONBUILD RUN pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements.txt \
+	&& if test -e requirements-deploy.txt; then \
+		pip3 install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements-deploy.txt; \
+	fi
 
 ONBUILD ADD . /opt/code
 ONBUILD WORKDIR /opt/code

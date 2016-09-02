@@ -11,9 +11,12 @@ RUN apt-get install -y salt-cloud salt-api
 
 RUN salt-cloud -u
 
-ONBUILD ADD requirements.txt /opt/code/requirements.txt
+ONBUILD COPY requirements*.txt /opt/code/
 ONBUILD WORKDIR /opt/code
-ONBUILD RUN pip install -Ur requirements.txt
+ONBUILD RUN pip install -Ur requirements.txt \
+	&& if test -e requirements-deploy.txt; then \
+		pip install -Ur requirements-deploy.txt; \
+	fi
 
 ONBUILD ADD . /opt/code
 ONBUILD WORKDIR /opt/code
