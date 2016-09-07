@@ -2,7 +2,7 @@ FROM aexea/aexea-base
 MAINTAINER Aexea Carpentry
 
 EXPOSE 8000
-RUN pip3 install psycopg2 lxml Pillow pandas wheel
+RUN pip3 install psycopg2 lxml Pillow pandas wheel numpy
 
 # scipy / scikit-learn
 RUN apt-get update && apt-get -y upgrade && apt-get install -y libblas-dev liblapack-dev libatlas-base-dev gfortran
