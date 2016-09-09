@@ -1,30 +1,18 @@
-FROM ubuntu:14.04
+FROM python:2
 MAINTAINER Aexea Carpentry
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV AX_USER uid1000
 
-# Set the locale
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+RUN apt-get update && apt-get install -y \
+	lib32z1-dev \
+	libmemcached-dev \
+	locales \
+	postgresql-client \
+	postgresql-server-dev-all \
+	sudo \
+	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-    curl \
-    git \
-    lib32z1-dev \
-    libjpeg8-dev \
-    libmemcached-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    postgresql-client \
-    postgresql-server-dev-all \
-    python-dev \
-    python-pip \
-    python-virtualenv \
-    zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN useradd uid1000 -d /home/uid1000
-RUN mkdir -p /home/uid1000 && chown uid1000: /home/uid1000
-VOLUME /home/uid1000
+RUN useradd $AX_USER -d /home/$AX_USER
+RUN mkdir -p /home/$AX_USER && chown $AX_USER: /home/$AX_USER
+VOLUME /home/$AX_USER
