@@ -5,10 +5,11 @@ EXPOSE 8000
 RUN pip install psycopg2 lxml Pillow pandas wheel
 
 ONBUILD COPY requirements*.txt /opt/code/
+ONBUILD COPY pip.conf /root/.config/pip/pip.conf
 ONBUILD WORKDIR /opt/code
-ONBUILD RUN pip install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements.txt \
+ONBUILD RUN pip install -Ur requirements.txt \
 	&& if test -e requirements-deploy.txt; then \
-		pip install --trusted-host=pypi.qax.io --find-links=http://pypi.qax.io/wheels/ -Ur requirements-deploy.txt; \
+		pip install -Ur requirements-deploy.txt; \
 	fi
 
 ONBUILD ADD . /opt/code
