@@ -11,6 +11,9 @@ RUN echo "deb http://download.mono-project.com/repo/debian jessie/snapshots/5.0 
 	&& apt-get install -y mono-profiler mono-devel ca-certificates-mono fsharp graphviz mono-vbnc nuget nunit nunit-console default-jre zip \
 	&& rm -rf /var/lib/apt/lists/*
 
+COPY get_locales.py /root
+COPY install_locales.sh /root
+
 ONBUILD COPY requirements*.txt /opt/code/
 ONBUILD COPY pip.conf /root/.config/pip/pip.conf
 ONBUILD WORKDIR /opt/code
@@ -18,6 +21,8 @@ ONBUILD RUN pip3 install -Ur requirements.txt \
 	&& if test -e requirements-deploy.txt; then \
 		pip3 install -Ur requirements-deploy.txt; \
 	fi
+
+ONBUILD RUN /root/install_locales.sh
 
 ONBUILD ADD . /opt/code
 ONBUILD WORKDIR /opt/code
