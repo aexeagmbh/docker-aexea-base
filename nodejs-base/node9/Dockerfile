@@ -5,6 +5,9 @@ RUN mkdir -p /opt/code
 RUN chown node:node /opt/code
 WORKDIR /opt/code
 
+ENV TERM xterm
+ENV npm_config_loglevel warn
+
 ONBUILD COPY package*.json /opt/code/
 ONBUILD RUN npm install
 
