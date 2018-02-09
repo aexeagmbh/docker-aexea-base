@@ -1,5 +1,5 @@
 FROM aexea/aexea-base:py3.6
-MAINTAINER Aexea Carpentry
+LABEL maintainer "Aexea Carpentry"
 
 EXPOSE 8000
 RUN pip3 install psycopg2 lxml Pillow pandas wheel
