@@ -1,4 +1,5 @@
-FROM python:2
+
+FROM python:2-stretch
 LABEL maintainer "Aexea Carpentry"
 
 ENV DEBIAN_FRONTEND noninteractive
