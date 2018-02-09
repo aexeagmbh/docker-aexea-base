@@ -1,0 +1,33 @@
+sudo: required
+services:
+  - docker
+language: python
+python:
+  - 3.6
+
+install:
+  - sudo apt-get update
+  - sudo apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" docker-ce
+
+before_script:
+  - docker version
+
+script:
+  - docker build --no-cache --tag aexea/aexea-base:py3.6 aexea-base/py3.6
+  - docker build --no-cache --tag aexea/aexea-base:py2 aexea-base/py2
+  - docker build --no-cache --tag aexea/aexea-base:node6 aexea-base/node6
+  - docker build --no-cache --tag aexea/aexea-base:node9 aexea-base/node9
+  - docker build --no-cache --tag aexea/aexea-base:latest aexea-base
+
+  - docker build --no-cache --tag aexea/cypress-base:latest cypress-base
+
+  - docker build --no-cache --tag aexea/django-base:py3.6 django-base/py3.6
+  - docker build --no-cache --tag aexea/django-base:py2 django-base/py2
+
+  - docker build --no-cache --tag aexea/django-mono-base:py3.6 django-mono-base/py3.6
+
+  - docker build --no-cache --tag aexea/django-sklean-base:py3.6 django-sklearn-base/py3.6
+
+  - docker build --no-cache --tag aexea/nodejs-base:node6 nodejs-base/node6
+  - docker build --no-cache --tag aexea/nodejs-base:node9 nodejs-base/node9
+  - docker build --no-cache --tag aexea/nodejs-base:latest nodejs-base
