@@ -24,7 +24,7 @@ script:
   - docker build --no-cache --tag aexea/django-base:py3.6 django-base/py3.6
   - docker build --no-cache --tag aexea/django-base:py2 django-base/py2
 
-  - docker build --no-cache --tag aexea/django-mono-base:py3.6 django-mono-base/py3.6
+  - docker build --no-cache --tag aexea/mono-base:py3.6 django-mono-base/py3.6
 
   - docker build --no-cache --tag aexea/django-sklean-base:py3.6 django-sklearn-base/py3.6
 
