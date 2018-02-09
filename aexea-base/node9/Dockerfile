@@ -1,5 +1,5 @@
 FROM node:9
-MAINTAINER Aexea Carpentry
+LABEL maintainer "Aexea Carpentry"
 
 ENV DEBIAN_FRONTEND noninteractive
 
