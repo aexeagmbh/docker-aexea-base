@@ -2,7 +2,7 @@ FROM aexea/aexea-base:py3.6
 LABEL maintainer "Aexea Carpentry"
 
 EXPOSE 8000
-RUN pip3 install psycopg2 lxml Pillow pandas wheel
+RUN pip3 install --no-binary psycopg2 psycopg2 lxml Pillow pandas wheel
 
 RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 
