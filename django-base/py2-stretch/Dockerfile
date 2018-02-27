@@ -1,8 +1,8 @@
-FROM aexea/aexea-base:py2
+FROM aexea/aexea-base:py2-stretch
 LABEL maintainer "Aexea Carpentry"
 
 EXPOSE 8000
-RUN pip install psycopg2 lxml Pillow pandas wheel
+RUN pip install --no-binary psycopg2 psycopg2 lxml Pillow pandas wheel
 
 ONBUILD COPY requirements*.txt /opt/code/
 ONBUILD COPY pip.conf /root/.config/pip/pip.conf
