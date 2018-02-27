@@ -1,5 +1,6 @@
-FROM python:3.6
-MAINTAINER Aexea Carpentry
+
+FROM python:3.6-stretch
+LABEL maintainer "Aexea Carpentry"
 
 ENV DEBIAN_FRONTEND noninteractive
 

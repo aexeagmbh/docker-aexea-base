@@ -1,5 +1,5 @@
 FROM aexea/aexea-base:node9
-MAINTAINER Aexea Carpentry
+LABEL maintainer "Aexea Carpentry"
 
 RUN mkdir -p /opt/code
 RUN chown node:node /opt/code

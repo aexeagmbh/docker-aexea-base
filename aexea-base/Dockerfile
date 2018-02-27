@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Aexea Carpentry
+LABEL maintainer "Aexea Carpentry"
 
 ENV DEBIAN_FRONTEND noninteractive
 

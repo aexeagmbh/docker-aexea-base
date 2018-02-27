@@ -1,5 +1,6 @@
-FROM python:2
-MAINTAINER Aexea Carpentry
+
+FROM python:2-stretch
+LABEL maintainer "Aexea Carpentry"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV AX_USER uid1000
