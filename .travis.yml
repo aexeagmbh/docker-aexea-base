@@ -38,3 +38,6 @@ script:
   - docker build --no-cache --tag aexea/nodejs-base:node6 nodejs-base/node6
   - docker build --no-cache --tag aexea/nodejs-base:node9 nodejs-base/node9
   - docker build --no-cache --tag aexea/nodejs-base:latest nodejs-base
+
+notifications:
+  email: false
